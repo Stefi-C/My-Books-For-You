@@ -1,0 +1,70 @@
+:root{
+    --pink: #eabcdd;
+    --lightpink: #f0dfea;
+    --white: #f7f6f5;
+    --lilla: #ddd1e9;
+    --azzurre: #a4b5d5;
+    --black: #222;
+
+    --text: "Lato", sans-serif;
+    --title: "Kalnia Glaze", serif;
+    --cursive:"Playwrite HR Lijeva", cursive;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #222;
+}
+/*navbar*/
+nav{
+    display: flex;
+    height: 80px;
+    background: var(--azzurre);
+    width: 100vw;
+    position: fixed;
+    justify-content: space-between;
+}
+nav .logo img{
+    width: 90px;
+    margin: 20px;
+    box-shadow: 2px 2px 5px #222;
+    border-radius: 5px;
+}
+.menu{
+    width: 100%;
+    padding: 30px;
+}
+.menu ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu ul li a{
+    color: var(--white);
+    font-family: var(--cursive);
+    font-size: 20px;
+    cursor: pointer;
+}
+.menu ul li a:hover{
+    color: var(--pink);
+}
+.nav-icons{
+    display: flex;
+    margin: 30px;
+    justify-content: space-between;
+    width: 100px;
+    color: var(--white);
+}
+.nav-icons i{
+    font-size: 25px;
+}
