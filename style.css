@@ -750,12 +750,33 @@ textarea{
  }
  
  @media (max-width:768px){
-     body{
-        border: 5px solid purple;
-     }
+    
     .products-preview .preview img{
        height: 25rem;
     }
+    .hero h1{
+        font-size: 43px;
+    }
+    .hero p{
+        width: 300px;
+        text-align: center;
+    }
+    .hero img{
+        width: 500px;
+    }
+    .nav-icons{
+        width: 60px;
+    }
+    .about-desc h1{
+        width: 100px;
+    }
+    .about-desc h2{
+        font-size: 24px;
+    }
+    .contact-form{
+        width: 400px;
+    }
+    
  
  }
  
