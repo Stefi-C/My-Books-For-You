@@ -63,6 +63,8 @@
 
     <section id="books">
         <div class="container">
+         <button class="pre-btn"><i class="fa-solid fa-arrow-right"></i></button>
+         <button class="nxt-btn"><i class="fa-solid fa-arrow-right"></i></button>
             <div class="products-container">
                 <div class="product" data-name="p-1">
                     <img src="image-1.jpeg" alt="">
@@ -99,6 +101,29 @@
                     <h3>Mi Fido di Te</h3>
                     <button class="read">Read it</button>
                 </div>
+                <div class="product" data-name="p-1">
+                  <img src="image-1.jpeg" alt="">
+                  <h3>Le Note Di Serena</h3>
+                  <button class="read">Read it</button>
+              </div>
+
+              <div class="product" data-name="p-2">
+                  <img src="image-2.jpeg" alt="">
+                  <h3>Il Mondo di Eleonora</h3>
+                  <button class="read">Read it</button>
+              </div>
+
+              <div class="product" data-name="p-3">
+                  <img src="image-3.jpg" alt="">
+                  <h3>Ti Sento Ancora</h3>
+                  <button class="read">Read it</button>
+              </div>
+
+              <div class="product" data-name="p-4">
+                  <img src="image-4.jpg" alt="">
+                  <h3>A.I. Love</h3>
+                  <button class="read">Read it</button>
+              </div>
             </div>
             <div class="title">
                 <h1>My Books</h1>
@@ -476,6 +501,25 @@
               document.querySelector('#books').scrollIntoView({ behavior: 'smooth' });
           };
       });
+
+
+      //slider
+      const productContainers = [...document.querySelectorAll('.products-container')];
+const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+productContainers.forEach((item, i) => {
+    let containerDimensions = item.getBoundingClientRect();
+    let containerWidth = containerDimensions.width;
+
+    nxtBtn[i].addEventListener('click', () => {
+        item.scrollLeft += containerWidth;
+    })
+ 
+    preBtn[i].addEventListener('click', () => {
+        item.scrollLeft -= containerWidth;
+    })
+})
   </script>
 </body>
 </html>

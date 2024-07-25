@@ -198,26 +198,57 @@ nav .logo img{
 }
 /*books*/
 
-
+#books{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .container{
-    width: 100%;
+    width: 90%;
     position: relative;
     top: 80px;
-    margin:150px 20px 50px 20px;
+    margin:50px 20px 50px 20px;
     padding:3rem 2rem;
     max-height: 80vh;
+    overflow: hidden;
  }
- 
+ .pre-btn,
+.nxt-btn {
+  border: none;
+  width: 35px;
+  height: 80%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, var(--azzurre) 0%, #fff 100%);
+  cursor: pointer;
+  z-index: 8;
+}
+
+.pre-btn {
+  left: 0;
+  transform: rotate(180deg);
+}
+
+.nxt-btn {
+  right: 0;
+}
 
  
 .products-container{
-    display: grid;
+    display: flex;
+    flex-wrap: nowrap;
     align-items: center;
-    grid-template-columns: repeat(6, minmax(210px, 1fr));
     gap:1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
  }
  
 .product{
+    width: 210px;
+    height: 86%;
     text-align: center;
     background: #fff;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
@@ -229,7 +260,7 @@ nav .logo img{
  
 .product:hover{
     outline: .2rem solid var(--azzurre);
-    outline-offset: 0;
+    outline-offset: 1px;
  }
  
 .product img{
@@ -279,9 +310,9 @@ nav .logo img{
     margin-top: 15px;
     text-align: center;
     background: linear-gradient(90deg, var(--lightpink) 0%, var(--pink) 40%, var(--azzurre) 100%);
-    position: relative;
     width: 80%;
     height: 78vh;
+    position: relative;
    
  }
  
@@ -299,7 +330,7 @@ nav .logo img{
  
 .preview .fa-times{
     position: absolute;
-    top:20%; right:1.5rem;
+    top:5%; right:10px;
     cursor: pointer;
     color:#444;
     font-size: 20px;
@@ -621,13 +652,36 @@ textarea{
 @media (max-width:991px){
 
     html{
-       font-size: 55%;
+       font-size: 75%;
     }
+    body{
+        border: 5px solid red;
+    }
+    .flip-book{
+        width: 350px;
+        height: 580px;
+        perspective: 1500px;
+        box-shadow: 8px 4px 34px 5px #222222a2;
+    }
+    #cover{
+        height: 580px;
+        background: var(--pink);
+    }
+    nav{
+        display: none;
+    }
+    .preview .fa-times{
+        top: -5%;
+        color: var(--lilla);
+    }
+    
  
  }
  
  @media (max-width:768px){
- 
+     body{
+        border: 5px solid purple;
+     }
     .products-preview .preview img{
        height: 25rem;
     }
