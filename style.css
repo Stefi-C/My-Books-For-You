@@ -59,11 +59,13 @@ button:hover{
 }
 .title h1{
     width: 250px;
-    border-bottom: 2px solid var(--black); z-index: 2;
+    border-bottom: 2px solid var(--black);
+    z-index: 2;
 }
 
 /*navbar*/
-nav{
+
+.navbar{
     display: flex;
     height: 80px;
     background: var(--azzurre);
@@ -72,8 +74,18 @@ nav{
     justify-content: space-between;
     box-shadow: 2px 2px 55px #222222a2;
     z-index: 999;
+    
 }
-nav .logo img{
+.side-menu{
+    display: none;
+    background: var(--azzurre);
+    transition: .5s ease;
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 2px 2px 55px #222222a2;
+
+}
+.navbar .logo img{
     width: 90px;
     margin: 20px;
     box-shadow: 2px 2px 15px #2222228a;
@@ -123,7 +135,7 @@ nav .logo img{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
+    
 }
 .hero h1{
     color: var(--white);
@@ -135,6 +147,25 @@ nav .logo img{
     font-family: var(--text);
     font-size: 20px;
     color: var(--black);
+}
+.toggle-btn{
+    position: fixed;
+    top: 15px;
+    display: none;
+    right: 10px;
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    color: var(--azzurre);
+    padding: 5;
+    background: transparent;
+    box-shadow: none;
+    font-size: 30px;
+    text-shadow: 2px 2px 5px #222;
+}
+.toggle-btn:hover{
+    background: none;
+    box-shadow: none;
 }
 .banner-1{
     width: 800px;
@@ -654,9 +685,7 @@ textarea{
     html{
        font-size: 75%;
     }
-    body{
-        border: 5px solid red;
-    }
+   
     .flip-book{
         width: 350px;
         height: 580px;
@@ -667,12 +696,54 @@ textarea{
         height: 580px;
         background: var(--pink);
     }
-    nav{
+    .nav{
+        position: relative;
+    }
+    .navbar{
         display: none;
+    }
+    .side-menu{
+        display: flex;
+        width: 30%;
+        height: 100%;
+        flex-direction: column-reverse;
+        right: -30%;
+        
+    }
+    .side-menu .logo img{
+        width: 90px;
+        margin: 20px;
+        box-shadow: 2px 2px 15px #2222228a;
+        border-radius: 5px;
+    }
+    .menu ul{
+        flex-direction: column;
+    }
+    .menu ul li{
+        line-height: 100px;
+    }
+    .toggle-btn{
+        display: block;
     }
     .preview .fa-times{
         top: -5%;
         color: var(--lilla);
+    }
+    .logo{
+        align-self: center;
+    }
+    
+    .contact-form{
+        flex-direction: column;
+        height: 500px;
+        width: 100%;
+        background: var(--pink);
+        align-items: center;
+    }
+    
+    form{
+        width: 100%;
+        height: 300px;
     }
     
  

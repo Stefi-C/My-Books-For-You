@@ -21,7 +21,8 @@
 </head>
 <body>
     <nav>
-        <div class="logo">
+      <div class="navbar">
+         <div class="logo">
             <img src="/bookIcon.jpg" alt="">
         </div>
         <div class="menu">
@@ -36,9 +37,34 @@
             <i class="fa-solid fa-user"></i>
             <i class="fa-solid fa-bag-shopping"></i>
         </div>
-    </nav>
+       
+      </div>
+      <div class="side-menu">
+         <div class="logo">
+            <img src="/bookIcon.jpg" alt="">
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#banner">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="nav-icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+       
+      </div>
+         <button class="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+   
+   </nav>
+         
     <section id="banner">
+      
         <div class="hero">
+         
             <h1>My Books For You</h1>
             <p>"Explore My Personal Creation: Unique Stories Just for You."</p>
             <img src="/book-banner.png" class="banner-1">
@@ -520,6 +546,51 @@ productContainers.forEach((item, i) => {
         item.scrollLeft -= containerWidth;
     })
 })
+
+//menu function
+let menuBtn = document.querySelector('.toggle-btn');
+let menu = document.querySelector('.side-menu');
+let icon = document.querySelector('.fa-bars');
+
+// Log per il debug
+console.log('menuBtn:', menuBtn);
+console.log('menu:', menu);
+console.log('icon:', icon);
+
+// Verifica se gli elementi sono stati selezionati correttamente
+if (menuBtn && menu && icon) {
+    function menuFunction() {
+        console.log('menuFunction called');
+        if (menu.style.right === '0px') {
+            menu.style.right = '-30%';
+            icon.classList.replace("fa-times", "fa-bars");
+        } else {
+            menu.style.right = '0px';
+            icon.classList.replace("fa-bars", "fa-times");
+        }
+    }
+
+    // Listener per il bottone del menu
+    menuBtn.addEventListener('click', function(event) {
+        event.stopPropagation();
+        menuFunction();
+    });
+
+    // Listener per la chiusura del menu cliccando fuori
+    window.addEventListener('click', function(event) {
+        if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+            menu.style.right = '-30%';
+            icon.classList.replace("fa-times", "fa-bars");
+        }
+    });
+
+    // Imposta lo stile iniziale del menu
+    menu.style.right = '-30%';
+} else {
+    if (!menuBtn) console.error('menuBtn non trovato nel DOM.');
+    if (!menu) console.error('menu non trovato nel DOM.');
+    if (!icon) console.error('icon non trovato nel DOM.');
+}
   </script>
 </body>
 </html>
