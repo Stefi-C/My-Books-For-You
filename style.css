@@ -44,7 +44,7 @@ button{
 }
 button:hover{
     box-shadow: 2px 2px 15px #222;
-    color: var(--pink);
+    background-color: var(--azzurre);
 }
 .title{
     font-family: var(--cursive);
@@ -113,7 +113,10 @@ nav .logo img{
     height: 100vh;
 }
 .hero{
-    background-image: linear-gradient(180deg, var(--lightpink) 50%, var(--white) 50%);
+    background: linear-gradient(180deg, #eabcddc0 50%, #f7f6f5ca 50%), url(/book-banner-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     height: 120vh;
     width: 100vw;
     display: flex;
@@ -142,7 +145,7 @@ nav .logo img{
     left: 50%;
     bottom: 150px;
     transform: translateX(-50%);
-    opacity: .8;
+    opacity: .7;
 }
 
 /*about*/
@@ -275,7 +278,7 @@ nav .logo img{
     padding:20px;
     margin-top: 15px;
     text-align: center;
-    background: #fff;
+    background: linear-gradient(90deg, var(--lightpink) 0%, var(--pink) 40%, var(--azzurre) 100%);
     position: relative;
     width: 80%;
     height: 78vh;
@@ -294,39 +297,227 @@ nav .logo img{
     height: 450px;
  }
  
- .products-preview .preview .fa-times{
+.preview .fa-times{
     position: absolute;
-    top:1rem; right:1.5rem;
+    top:20%; right:1.5rem;
     cursor: pointer;
     color:#444;
     font-size: 20px;
  }
  
- .products-preview .preview .fa-times:hover{
+.preview .fa-times:hover{
     transform: rotate(85deg);
  }
  
-.preview h2{
-    color:#444;
-    padding:.5rem 0;
-    font-size: 25px;
-    font-family: var(--title);
- }
- 
+ .book{
+    padding: 30px;
+    background: transparent;
+    text-align: center;
+    color: var(--white);  
+}
+.main-book{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 70vh;
+    margin:  0 80px;
+    border-radius: 5px;
+}
+.book-command{
+    display: none;
+}
 
- 
- .preview p{
-    line-height: 1.5;
-    padding:1rem 0;
-    font-size: 1.6rem;
-    color:#777;
- }
- 
-  .price{
-    padding:1rem 0;
-    font-size: 2.5rem;
-    color:#ddd1e9;
- }
+.in-book{
+    display: flex;
+}
+#cover{
+    width: 350px;
+    height: 500px;
+    box-shadow: 8px 4px 34px 5px #000000;
+    text-align: center;
+    align-items: center;
+    font-family: var(--josefine);
+    border-radius: 5px;
+}
+#cover img{
+    width: 90%;
+    height: 70%;
+    margin: 10px;
+}
+.flip-book{
+    width: 350px;
+    height: 500px;
+    perspective: 1500px;
+    box-shadow: 8px 4px 34px 5px #222222a2;
+}
+.flip{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: .5s;
+    color: var(--dark);
+    box-shadow: 8px 4px 34px 5px #222222a2;
+}
+
+.bio-p{
+    margin: 20px;
+    font-size: 16px;
+    line-height:20px;
+    text-align: justify;
+    color: var(--black);
+
+}
+.front{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    background-color: var(--white);
+    box-sizing: border-box;
+    padding: 0 13px;
+    box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5) 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    z-index: 9;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    background-color: var(--white);
+}
+.end-page{
+    color: var(--dark);
+    border-radius: 5px;
+}
+.next-btn{
+    position: absolute;
+    bottom: 13px;
+    right: 13px;
+    cursor: pointer;
+    color: var(--black);
+    font-family: var(--text);
+}
+.back-btn{
+    position: absolute;
+    bottom: 13px;
+    right: 13px;
+    cursor: pointer;
+    color: var(--black);
+    font-family: var(--text);
+}
+.end-btn{
+    position: absolute;
+    bottom: 13px;
+    right: 13px;
+    cursor: pointer;
+    color: var(--dark);
+    outline: none;
+    border: none;
+    background: transparent;
+    font-family: var(--josefine);
+    box-shadow: var(--track-shadow);
+    padding: 5px;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+.end-btn:hover{
+    background: #949494;
+}#p1, #p4, #p7, #p10, #p13, #p16 {
+    z-index: 3;
+}
+#p2, #p5, #p8, #p11, #p14, #p17 {
+    z-index: 2;
+}
+#p3, #p6, #p9, #p12, #p15, #p18 {
+    z-index: 1;
+}
+
+#c1:checked ~ .flip-book #p1 {
+    transform: rotateY(-180deg);
+    z-index: 1;
+}
+#c2:checked ~ .flip-book #p2 {
+    transform: rotateY(-180deg);
+    z-index: 2;
+}
+#c3:checked ~ .flip-book #p3 {
+    transform: rotateY(-180deg);
+    z-index: 3;
+}
+#c4:checked ~ .flip-book #p4 {
+    transform: rotateY(-180deg);
+    z-index: 1;
+}
+#c5:checked ~ .flip-book #p5 {
+    transform: rotateY(-180deg);
+    z-index: 2;
+}
+#c6:checked ~ .flip-book #p6 {
+    transform: rotateY(-180deg);
+    z-index: 3;
+}
+#c7:checked ~ .flip-book #p7 {
+    transform: rotateY(-180deg);
+    z-index: 1;
+}
+#c8:checked ~ .flip-book #p8 {
+    transform: rotateY(-180deg);
+    z-index: 2;
+}
+#c9:checked ~ .flip-book #p9 {
+    transform: rotateY(-180deg);
+    z-index: 3;
+}
+#c10:checked ~ .flip-book #p10 {
+    transform: rotateY(-180deg);
+    z-index: 1;
+}
+#c11:checked ~ .flip-book #p11 {
+    transform: rotateY(-180deg);
+    z-index: 2;
+}
+#c12:checked ~ .flip-book #p12 {
+    transform: rotateY(-180deg);
+    z-index: 3;
+}
+#c13:checked ~ .flip-book #p13 {
+    transform: rotateY(-180deg);
+    z-index: 1;
+}
+#c14:checked ~ .flip-book #p14 {
+    transform: rotateY(-180deg);
+    z-index: 2;
+}
+#c15:checked ~ .flip-book #p15 {
+    transform: rotateY(-180deg);
+    z-index: 3;
+}
+#c16:checked ~ .flip-book #p16 {
+    transform: rotateY(-180deg);
+    z-index: 1;
+}
+#c17:checked ~ .flip-book #p17 {
+    transform: rotateY(-180deg);
+    z-index: 2;
+}
+#c18:checked ~ .flip-book #p18 {
+    transform: rotateY(-180deg);
+    z-index: 3;
+}
+
+
+
  
 /*contact*/
 .contact{
@@ -375,7 +566,7 @@ textarea{
     border-bottom: 2px solid #2222228a;
     width: 80%;
     font-family: var(--cursive);
-    text-align: center;
+    text-align: start;
     padding: 20px;
     margin: 5px;
     outline: none;
@@ -395,7 +586,7 @@ textarea{
     height: 50px;
     background: var(--azzurre);
     width: 100%;
-    position: fixed;
+    position: relative;
     bottom: 0;
     align-items: center;
     justify-content: space-between;
